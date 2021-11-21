@@ -30,6 +30,6 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
 
-    publish:
+  publish:
 
-      needs: build
+    needs: build
