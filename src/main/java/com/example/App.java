@@ -1,27 +1,26 @@
 package com.example;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import javax.annotation.PostConstruct;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class App {
+public class App implements CommandLineRunner {
 
-    public static void main(String[] args)
-    {
+    private static final Logger LOG = LoggerFactory.getLogger(App.class);
+
+    public static void main(String[] args) {
         SpringApplication.run(App.class, args);
-    }
-
-    @PostConstruct
-    public void init()
-    {
-        Logger log = LoggerFactory.getLogger(App.class);
-        log.info("Java app started");
     }
 
     public String getStatus() {
         return "OK";
+    }
+
+    @Override
+    public void run(String... args) throws Exception {
+        LOG.info("Java app started");
     }
 }
